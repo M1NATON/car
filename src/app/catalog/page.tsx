@@ -1,7 +1,6 @@
 "use client"
 
 
-import Navbar from "@/app/components/navbar/Navbar";
 import CatalogTitle from "@/app/catalog/CatalogTitle";
 import CatalogCarBody from "@/app/catalog/CatalogCarBody";
 import CatalogFilters from "@/app/catalog/CatalogFilters";
