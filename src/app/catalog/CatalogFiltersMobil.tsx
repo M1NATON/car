@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 
 import options from '@/public/image/catalog/options.svg'
-import close from '@/public/image/catalog/close.svg'
 import Image from "next/image";
 import CatalogFilters from "@/app/catalog/CatalogFilters";
 import Menu from "@/app/components/Menu";

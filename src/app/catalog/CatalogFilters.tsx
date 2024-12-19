@@ -1,4 +1,3 @@
-import React from 'react';
 import CatalogFilter from "@/app/catalog/CatalogFilter";
 
 const CatalogFilters = () => {

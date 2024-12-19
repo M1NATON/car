@@ -3,15 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import logoNavbar from '../../../public/image/navbar/logoNavbar.svg'
-import React, {useEffect, useState} from "react";
-
+import {useEffect, useState} from "react";
 import menuImg from '@/public/image/navbar/menu.svg'
 import phoneImg from '@/public/image/navbar/phone.svg'
 import NavbarModal from "@/app/components/navbar/NavbarModal";
 import Menu from "@/app/components/Menu";
 import NavbarMenu from "@/app/components/navbar/NavbarMenu";
 import {screenWidth} from "@/app/utils/screenWidth";
-import {useParams, usePathname, useRouter} from "next/navigation";
+import {usePathname} from "next/navigation";
 
 const Navbar = () => {
 
@@ -65,11 +64,11 @@ const Navbar = () => {
                         ) : (
                             <>
                                 <li><Link href={'/catalog'} className={'navbarHeaderLink'}>Выбрать авто</Link></li>
-                                <li><Link href={'/catalog'} className={'navbarHeaderLink'}>Как мы работаем</Link></li>
+                                <li><Link href={'/frequentlyAskedQuestions'} className={'navbarHeaderLink'}>Как мы
+                                    работаем</Link></li>
                             </>
                         )
                     }
-
 
                 </ul>
                 <ul>

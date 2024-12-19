@@ -5,11 +5,10 @@ import Link from "next/link";
 import {formatPrice} from "@/app/utils/formatPrice";
 import arrow from '@/public/image/car/arrow.svg'
 import Image from "next/image";
-
 import clock from '@/public/image/car/clock.svg'
 import pin from '@/public/image/car/pin.svg'
 import FormApplication from "@/app/components/FormApplication";
-import React, {useEffect, useState} from "react";
+import {useState} from "react";
 import {screenWidth} from "@/app/utils/screenWidth";
 import NavbarModal from "@/app/components/navbar/NavbarModal";
 

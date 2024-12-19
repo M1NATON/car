@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import {ReactNode} from 'react';
 import Image from "next/image";
 import close from "@/public/image/catalog/close.svg";
 
