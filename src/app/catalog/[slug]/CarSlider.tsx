@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import {screenWidth} from "@/app/utils/screenWidth";
 
 
 type Props = {
@@ -16,8 +17,8 @@ const CarSlider = ({images}: Props) => {
     const settings = {
         variableWidth: false,
         speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 2
+        slidesToShow: screenWidth > 820 ? 2 : 1,
+        slidesToScroll: screenWidth > 820 ? 2 : 1,
     };
 
 
@@ -26,7 +27,7 @@ const CarSlider = ({images}: Props) => {
             <Slider {...settings}>
                 {
                     images.map((image, index) => (
-                        <Image className={''} key={index} width={557} height={360} src={image}
+                        <Image className={'carSlider'} key={index} width={557} height={360} src={image}
                                alt={'image'}/>
                     ))
                 }

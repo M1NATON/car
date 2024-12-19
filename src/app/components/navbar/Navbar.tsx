@@ -3,35 +3,64 @@
 import Link from "next/link";
 import Image from "next/image";
 import logoNavbar from '../../../public/image/navbar/logoNavbar.svg'
-import React, {useState} from "react";
-import Input from "@/app/ui/Input";
-import Checkbox from "@/app/ui/Checkbox";
+import React, {useEffect, useState} from "react";
 
-import menu from '@/public/image/navbar/menu.svg'
-import phone from '@/public/image/navbar/phone.svg'
+import menuImg from '@/public/image/navbar/menu.svg'
+import phoneImg from '@/public/image/navbar/phone.svg'
+import NavbarModal from "@/app/components/navbar/NavbarModal";
+import Menu from "@/app/components/Menu";
+import NavbarMenu from "@/app/components/navbar/NavbarMenu";
+import {screenWidth} from "@/app/utils/screenWidth";
+import {useParams, usePathname, useRouter} from "next/navigation";
 
 const Navbar = () => {
 
     const [modal, setModal] = useState(false)
+    const [menu, setMenu] = useState(false)
 
-    const onOpen = () => {
-        setModal(true)
-        document.body.classList.add('no-scroll')
+    const url = usePathname()
+    const onOpen = (type: string) => {
+        switch (type) {
+            case "menu":
+                setMenu(true)
+                document.body.classList.add('no-scroll')
+                break
+            case 'modal':
+                setModal(true)
+                document.body.classList.add('no-scroll')
+                break
+            default:
+                break
+        }
     }
 
-    const onClose = () => {
-        setModal(false)
-        document.body.classList.remove('no-scroll');
+    const onClose = (type: string) => {
+        switch (type) {
+            case "menu":
+                setMenu(false)
+                document.body.classList.remove('no-scroll')
+                break
+            case 'modal':
+                setModal(false)
+                document.body.classList.remove('no-scroll')
+                break
+            default:
+                break
+        }
     }
+
+    useEffect(() => {
+        onClose('modal')
+    }, [url]);
 
     return (
         <header className={'navbarHeader'}>
             <nav>
                 <ul>
                     {
-                        window.screen.width < 820 ? (
+                        screenWidth < 820 ? (
                             <button className={'iconButton'}>
-                                <Image src={phone} alt={'phone'}/>
+                                <Image src={phoneImg} alt={'phone'}/>
                             </button>
                         ) : (
                             <>
@@ -48,16 +77,16 @@ const Navbar = () => {
                 </ul>
                 <ul>
                     {
-                        window.screen.width < 820 ? (
-                            <button className={'iconButton'}>
-                                <Image src={menu} alt={'menu'}/>
+                        screenWidth < 820 ? (
+                            <button onClick={() => onOpen('menu')} className={'iconButton'}>
+                                <Image src={menuImg} alt={'menu'}/>
                             </button>
                         ) : (
                             <>
                                 <li><Link href={'/catalog'} className={'navbarHeaderLink'}>Отзывы</Link></li>
                                 <li><Link href={'/catalog'} className={'navbarHeaderLink'}>Контакты</Link></li>
                                 <li>
-                                    <button onClick={onOpen}>Заявка</button>
+                                    <button onClick={() => onOpen('modal')}>Заявка</button>
                                 </li>
                             </>
                         )
@@ -66,21 +95,14 @@ const Navbar = () => {
             </nav>
             {
                 modal && (
-                    <div className={'navbarModalBg'} onClick={onClose}>
-                        <form action="" className={'navbarModal'} onClick={(e) => e.stopPropagation()}>
-                            <h4>Получиться предложение</h4>
-                            <Input type={'text'} label={'Имя'}/>
-                            <Input type={'tel'} label={'Телефон'}/>
-                            <label className={'inputLabel'}>Комментарий</label>
-                            <textarea></textarea>
-                            <Checkbox
-                                item={'Нажимая кнопку «Получить предложение»,  Вы соглашаетесь с Политикой защиты данных ООО «МайБроАвторус»'}
-                            />
-                            <button>
-                                Отправить
-                            </button>
-                        </form>
-                    </div>
+                    <NavbarModal isOpen={modal} onClose={() => onClose('modal')}/>
+                )
+            }
+            {
+                menu && (
+                    <Menu onClose={() => onClose('menu')} inOpen={menu}>
+                        <NavbarMenu/>
+                    </Menu>
                 )
             }
         </header>

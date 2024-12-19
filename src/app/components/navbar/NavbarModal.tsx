@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import Input from "@/app/ui/Input";
-import Checkbox from "@/app/ui/Checkbox";
+import FormApplication from "@/app/components/FormApplication";
 
 
 type Props = {
     isOpen: boolean;
-
+    onClose: () => void;
 }
 
-const NavbarModal = ({isOpen}: Props) => {
+const NavbarModal = ({isOpen, onClose}: Props) => {
 
     const [modal, setModal] = useState(false)
 
@@ -28,27 +27,18 @@ const NavbarModal = ({isOpen}: Props) => {
         }
     }, [isOpen]);
 
-    const onClose = () => {
+    const handleClose = () => {
         setModal(false)
         document.body.classList.remove("no-scroll");
+        onClose()
     }
 
     return (
         modal && (
-            <div className={'navbarModalBg'} onClick={onClose}>
-                <form action="" className={'navbarModal'} onClick={(e) => e.stopPropagation()}>
-                    <h4>Получиться предложение</h4>
-                    <Input type={'text'} label={'Имя'}/>
-                    <Input type={'tel'} label={'Телефон'}/>
-                    <label className={'inputLabel'}>Комментарий</label>
-                    <textarea ></textarea>
-                    <Checkbox
-                        item={'Нажимая кнопку «Получить предложение»,  Вы соглашаетесь с Политикой защиты данных ООО «МайБроАвторус»'}
-                    />
-                    <button>
-                        Отправить
-                    </button>
-                </form>
+            <div className={'navbarModalBg'} onClick={handleClose}>
+                <div className="navbarModal">
+                    <FormApplication/>
+                </div>
             </div>
         )
     );

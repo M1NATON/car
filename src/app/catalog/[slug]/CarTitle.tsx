@@ -1,14 +1,18 @@
 "use client"
 
-import {useParams, usePathname} from "next/navigation";
+import {usePathname} from "next/navigation";
 import {splitPathToArray} from "@/app/utils/splitPathToArray";
 import {urlToNameRu} from "@/app/utils/urlToNameRu";
 
-const CarTitle = () => {
 
-    const patchname = usePathname()
+type Props = {
+    carName: string
+    carModel: string
+}
 
-    const patch = splitPathToArray(patchname);
+const CarTitle = ({carName, carModel}:Props) => {
+
+    const pathname = splitPathToArray(usePathname())
 
     return (
         <div className="carTitle">
@@ -16,14 +20,10 @@ const CarTitle = () => {
                 window.screen.width > 820 && (
                     <header className={'catalogTitleHeader'}>
                         <p>Главная</p>
-                        {
-                            patch.map((item, idx) => (
-                                <>
-                                    <p>—</p>
-                                    <p key={idx}>{urlToNameRu(item)}</p>
-                                </>
-                            ))
-                        }
+                        <p>—</p>
+                        <p>{urlToNameRu(pathname)}</p>
+                        <p>—</p>
+                        <p>{carName} {carModel}</p>
                     </header>
                 )
             }

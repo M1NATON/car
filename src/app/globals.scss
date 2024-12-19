@@ -36,11 +36,85 @@ body {
   height: 100%;
 }
 
+.formApplication {
+  background-color: #F2F7FE;
+  padding: 50px 77px;
+  width: 450px;
+  margin: 0 auto;
+
+  button {
+    margin-top: 20px;
+    background-color: #0084DC;
+    padding: 15px 97px;
+    width: 100%;
+    border: none;
+    color: #fff;
+  }
+
+  .customCheckbox {
+    span {
+      width: 15%;
+    }
+
+    label {
+      font-size: 11px;
+    }
+  }
+
+  h4 {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  textarea {
+    resize: none;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #999999;
+    outline: none;
+    transition: border-color 0.3s;
+
+    &:focus {
+      border-color: #007bff;
+    }
+
+    &.inputError {
+      border-color: #ff4d4f;
+      background-color: #fff2f2;
+    }
+  }
+}
+
+.navbarMenu{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+
+  a{
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+  }
+}
+
 .navbarHeader {
 
   max-width: 1440px;
   margin: 50px auto 36px;
   z-index: 9;
+
+  @media screen and (max-width: 820px) {
+    padding: 0 5px;
+  }
+
   nav {
     display: flex;
     justify-content: space-between;
@@ -113,8 +187,8 @@ body {
         margin-bottom: 16px;
       }
 
-      @media screen  and (max-width: 820px) {
-        p{
+      @media screen and (max-width: 820px) {
+        p {
           font-size: 16px;
           text-align: start;
         }
@@ -239,7 +313,7 @@ body {
       height: fit-content;
 
 
-      .carImage{
+      .carImage {
         width: 309px;
         height: 200px;
 
@@ -257,15 +331,16 @@ body {
       font-size: 16px;
       font-weight: normal;
       @media screen and (max-width: 820px) {
-        h3{
+        h3 {
           font-size: 14px;
 
 
         }
-        p{
+        p {
           font-size: 12px;
         }
       }
+
       h3 {
         border-bottom: 1px solid #D9D9D9;
         max-width: fit-content;
@@ -293,54 +368,18 @@ body {
   background-color: rgba(0, 0, 0, 0.31);
   z-index: 8;
   overflow-block: hidden;
-}
-
-.navbarModal {
-  background-color: #F2F7FE;
-  padding: 50px 77px;
-  width: 450px;
-  top: 25%;
-  left: 40%;
-  position: absolute;
-  z-index: 9;
 
 
-  button {
-    margin-top: 20px;
-    background-color: #0084DC;
-    padding: 15px 97px;
-    width: 100%;
-    border: none;
-    color: #fff;
-  }
-
-  .customCheckbox {
-    span {
-      width: 15%;
-    }
-
-    label {
-      font-size: 11px;
-    }
-  }
-
-  h4 {
-    font-size: 16px;
-    margin-bottom: 30px;
-  }
-
-  label {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 5px;
-  }
-
-  textarea {
-    resize: none;
-    width: 100%;
-    margin-bottom: 20px;
+  .navbarModal{
+    position: fixed;
+    top: 25%;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }
+
+
 
 .inputContainer {
   display: flex;
@@ -463,43 +502,56 @@ body {
   border: none;
 }
 
-.carTitle {
 
-
-  header{
-    display: flex;
-    max-width: fit-content;
-    margin: 0 auto 32px;
-    color: #999;
-    gap: 17px;
-    font-size: 12px;
-  }
-}
-
-.carContainer{
+.carContainer {
   max-width: 1200px;
   margin: 0 auto;
 
 
-  .CarInfoContainer{
+  .carSlider{
+    width: 557px;
+    height: 360px;
 
-    margin-top: 30px;
+    @media screen and (max-width: 820px) {
+      width: 309px;
+      height: 200px;
+    }
+  }
+
+  .carTitle {
+
+
+    header {
+      display: flex;
+      max-width: fit-content;
+      margin: 0 auto 32px;
+      color: #999;
+      gap: 17px;
+      font-size: 12px;
+    }
+  }
+
+  .CarInfoContainer {
+
+    margin: 30px auto;
 
 
     .carInfo {
-
+      margin-bottom: 30px;
       font-size: 16px;
       font-weight: normal;
+      padding: 0 9px;
       @media screen and (max-width: 820px) {
-        h3{
+        h3 {
           font-size: 14px;
 
 
         }
-        p{
+        p {
           font-size: 12px;
         }
       }
+
       h3 {
         border-bottom: 1px solid #D9D9D9;
         max-width: fit-content;
@@ -513,40 +565,172 @@ body {
       }
     }
 
-    main{
-      background-color: #F2F7FE;
-      padding: 30px;
-      width: fit-content;
 
-      .carPrice{
+    .carInfoAndApplication{
+
+      display: flex;
+      justify-content: space-between;
+
+      .carPriceAndTable {
+
+        width: 60%;
+        @media screen and (max-width: 820px) {
+          width: 100%;
+        }
+        .carPriceAndDelivery {
+          width: 85%;
+          background-color: #F2F7FE;
+          padding: 30px;
+          margin-bottom: 30px;
+
+          @media screen and (max-width: 820px) {
+            width: 100%;
+          }
+
+          .carPriceAndDeliveryDescription {
+            font-size: 12px;
+            opacity: 80%;
+          }
+
+          .carPriceAndDeliveryContainer {
+
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 10px;
+            @media screen and (max-width: 820px) {
+              flex-direction: column;
+            }
+            .carDelivery {
+              width: 30%;
+              @media screen and (max-width: 820px) {
+                width: 100%;
+              }
+              ul {
+                list-style: none;
+
+                li {
+                  line-height: 15px;
+                  display: flex;
+                  font-size: 12px;
+                  gap: 12px;
+                  align-items: center;
+                }
+
+                li:first-child {
+                  margin-bottom: 20px;
+                }
+              }
+            }
+
+            .carPrice {
+
+              width: fit-content;
+              @media screen and (max-width: 820px) {
+                margin-right: auto;
+              }
+              button {
+                text-transform: uppercase;
+                font-size: 14px;
+                background-color: #0084DC;
+                padding: 15px 57px;
+                border: none;
+                cursor: pointer;
+                color: #fff;
+              }
+
+              div {
+                display: flex;
+                gap: 14px;
+                align-items: center;
+                margin-bottom: 20px;
+              }
+
+              .carPriceTitle {
+                margin-bottom: 4px;
+                font-size: 14px;
+                text-transform: uppercase;
+              }
+
+              h5 {
+                font-size: 18px;
+              }
+            }
+          }
 
 
-        button {
-          text-transform: uppercase;
-          font-size: 14px;
-          background-color: #0084DC;
-          padding: 15px 57px;
-          border: none;
-          color: #fff;
         }
-        div{
-          display: flex;
-          gap: 14px;
-          align-items: center;
-          margin-bottom: 20px;
-        }
-        p{
-          font-size: 14px;
-          text-transform: uppercase;
-        }
-        h5{
-          font-size: 18px;
+
+
+        .carDescriptionTable {
+
+          width: 100%;
+          border-spacing: 0;
+
+          tr {
+            &:nth-child(odd) {
+              background-color: #F2F7FE;
+            }
+
+            td {
+              padding: 12px;
+
+            }
+          }
+
+
         }
       }
+
     }
 
   }
 
+  .carDescription {
+    width: 70%;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 9px;
+    @media screen and (max-width: 820px) {
+      width: 100%;
+    }
+    h2{
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    div{
+      margin-bottom: 30px;
+    }
+    .carDescriptionComment{
+
+      ul{
+        list-style: none;
+      }
+    }
+
+
+    .carDescriptionConfiguration{
+      li{
+        margin-left: 10px;
+        list-style: '- ';
+      }
+    }
+
+    .carDescriptionWarranty{
+      li{
+        margin-left: 15px;
+        list-style: '✔️';
+      }
+    }
+
+    .carDescriptionAdvantages{
+
+      li{
+        list-style: '⭐';
+        margin-left: 15px;
+      }
+    }
+  }
 }
 
 

@@ -43,7 +43,7 @@ const CatalogCarList = () => {
                         <div className="carInfo">
                             <h3>
                                 <Link
-                                    href={`/catalog/${car.id}`}>{car.name} {car.model}, {car.year}, {car.engine}, {car.gearLever} </Link>
+                                    href={`/catalog/${car.id}`}>{car.name} {car.model}, {car.year}, {car.engineShort}, {car.gearLever} </Link>
 
                             </h3>
                             <div>
@@ -51,7 +51,7 @@ const CatalogCarList = () => {
                             </div>
                         </div>
                         <p>
-                            {car.color}, {car.configuration}, {car.year}, {car.country}, {car.capacity}
+                            {car.color}, {car.configuration.name}, {car.year}, {car.country}, {car.capacity}
                         </p>
                     </div>
                 </div>
