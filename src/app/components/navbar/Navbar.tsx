@@ -3,13 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import logoNavbar from '../../../public/image/navbar/logoNavbar.svg'
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import menuImg from '@/public/image/navbar/menu.svg'
 import phoneImg from '@/public/image/navbar/phone.svg'
 import NavbarModal from "@/app/components/navbar/NavbarModal";
 import Menu from "@/app/components/Menu";
 import NavbarMenu from "@/app/components/navbar/NavbarMenu";
-import {usePathname} from "next/navigation";
 import useDeviceSize from "@/app/hooks/useDeviceSize";
 
 const Navbar = () => {
@@ -18,7 +17,6 @@ const Navbar = () => {
     const [menu, setMenu] = useState(false)
     const [width] = useDeviceSize()
 
-    const url = usePathname()
     const onOpen = (type: string) => {
         switch (type) {
             case "menu":
@@ -48,10 +46,6 @@ const Navbar = () => {
                 break
         }
     }
-
-    useEffect(() => {
-        onClose('modal')
-    }, [url]);
 
     return (
         <header className={'navbarHeader'}>

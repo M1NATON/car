@@ -5,17 +5,17 @@
 
 @font-face {
   font-weight: 400;
-  font-family: Roboto;
+  font-family: 'Gotham Pro';
   src: url("../public/fonts/gothamPro/gothampro.ttf");
 }
 
-//@font-face {
-//  font-family: 'Gotham Pro';
-//  src: local('Gotham Pro');
-//  font-weight: bold;
-//  font-style: normal;
-//  font-display: swap;
-//}
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url("../public/fonts/gothamPro/gothampro_bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
 
 * {
   box-sizing: border-box;
@@ -31,10 +31,6 @@ body {
   font-weight: 400;
 }
 
-.no-scroll {
-  overflow: hidden;
-  height: 100%;
-}
 
 .formApplication {
   background-color: #F2F7FE;
@@ -144,6 +140,7 @@ body {
         background-color: #0084DC;
         padding: 15px 33px;
         border: none;
+        cursor: pointer;
       }
     }
   }
@@ -769,7 +766,7 @@ body {
   }
 
   .accordionContent {
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     z-index: 8;
     transition: background-color 0.3s ease;
@@ -827,6 +824,10 @@ body {
     margin: 0 auto;
     font-weight: lighter;
 
+    @media screen and (max-width: 820px) {
+      width: 100%;
+      padding: 0 20px;
+    }
     h4 {
       margin-bottom: 20px;
     }

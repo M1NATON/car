@@ -29,19 +29,24 @@ export const sections: QuestionsDataProps[] = [
                 description: `Lorem ipsum...`,
             },
             {
-                title: 'Как происходит подбор авто',
+                title: 'Что будет если авто не будет в наличии',
                 images: [`${img1.src}`, `${img2.src}`, `${img3.src}`, `${img4.src}`, `${img5.src}`],
                 description: `Lorem ipsum...`,
             },
             {
-                title: 'Как происходит подбор авто',
+                title: 'Можно ли получить скидку на авто',
+                images: [`${img1.src}`, `${img2.src}`, `${img3.src}`, `${img4.src}`, `${img5.src}`],
+                description: `Lorem ipsum...`,
+            },
+            {
+                title: 'Как защитить авто от возможных царапин и повреждений при транспортировке',
                 images: [`${img1.src}`, `${img2.src}`, `${img3.src}`, `${img4.src}`, `${img5.src}`],
                 description: `Lorem ipsum...`,
             },
         ],
     },
     {
-        title: 'Подборка и покупка авто2',
+        title: 'Таможня и налоги',
         accordionItem: [
             {
                 title: 'Как происходит подбор авто',
@@ -49,12 +54,37 @@ export const sections: QuestionsDataProps[] = [
                 description: `Lorem ipsum...`,
             },
             {
-                title: 'Как происходит подбор авто',
+                title: 'Что будет если авто не будет в наличии',
                 images: [`${img1.src}`, `${img2.src}`, `${img3.src}`, `${img4.src}`, `${img5.src}`],
                 description: `Lorem ipsum...`,
             },
             {
-                title: 'Как происходит подбор авто',
+                title: 'Можно ли получить скидку на авто',
+                images: [`${img1.src}`, `${img2.src}`, `${img3.src}`, `${img4.src}`, `${img5.src}`],
+                description: `Lorem ipsum...`,
+            },
+            {
+                title: 'Как защитить авто от возможных царапин и повреждений при транспортировке',
+                images: [`${img1.src}`, `${img2.src}`, `${img3.src}`, `${img4.src}`, `${img5.src}`],
+                description: `Lorem ipsum...`,
+            },
+        ],
+    },
+    {
+        title: 'Транспортировка в РФ',
+        accordionItem: [
+            {
+                title: 'Что будет если авто не будет в наличии',
+                images: [`${img1.src}`, `${img2.src}`, `${img3.src}`, `${img4.src}`, `${img5.src}`],
+                description: `Lorem ipsum...`,
+            },
+            {
+                title: 'Что будет если авто не будет в наличии',
+                images: [`${img1.src}`, `${img2.src}`, `${img3.src}`, `${img4.src}`, `${img5.src}`],
+                description: `Lorem ipsum...`,
+            },
+            {
+                title: 'Как защитить авто от возможных царапин и повреждений при транспортировке',
                 images: [`${img1.src}`, `${img2.src}`, `${img3.src}`, `${img4.src}`, `${img5.src}`],
                 description: `Lorem ipsum...`,
             },

@@ -1,3 +1,5 @@
+"use client"
+
 import {useEffect, useState} from 'react';
 import FormApplication from "@/app/components/FormApplication";
 
@@ -12,24 +14,21 @@ const NavbarModal = ({isOpen, onClose}: Props) => {
     const [modal, setModal] = useState(false)
 
     useEffect(() => {
-        if(isOpen) {
+        if (isOpen) {
             setModal(true)
-            document.body.classList.add('no-scroll');
+            console.log('no scroll')
+            document.body.style.overflowY = 'hidden';
         } else {
             setModal(false)
-            document.body.classList.remove('no-scroll');
-        }
-
-
-        return () => {
-            setModal(false)
-            document.body.classList.remove('no-scroll');
+            console.log('scroll')
+            document.body.style.overflowY = 'auto';
         }
     }, [isOpen]);
 
+
     const handleClose = () => {
         setModal(false)
-        document.body.classList.remove("no-scroll");
+        document.body.style.overflowY = 'hidden';
         onClose()
     }
 
