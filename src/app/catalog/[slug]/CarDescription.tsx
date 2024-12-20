@@ -1,5 +1,5 @@
 "use client"
-import {CardProps} from "@/app/bd";
+import {CardProps} from "@/app/bd/bd";
 
 type Props = {
     car: CardProps

@@ -5,18 +5,21 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-import {carListData} from "@/app/bd";
+import {carListData} from "@/app/bd/bd";
 import {formatPrice} from "@/app/utils/formatPrice";
+import useDeviceSize from "@/app/hooks/useDeviceSize";
 
 
 
 
 const CatalogCarList = () => {
 
+    const [width] = useDeviceSize()
+
     const settings = {
         variableWidth: false,
         speed: 500,
-        slidesToShow: window.screen.width > 820 ? 3 : 2,
+        slidesToShow: width > 820 ? 3 : 2,
         slidesToScroll: 2
     };
 

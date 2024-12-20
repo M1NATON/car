@@ -2,16 +2,19 @@ import React from 'react';
 import close from '../../public/image/catalog/close.svg'
 import Image from "next/image";
 import CatalogFiltersMobil from "@/app/catalog/CatalogFiltersMobil";
+import useDeviceSize from "@/app/hooks/useDeviceSize";
 
 const CatalogFilterList = () => {
 
     const arrTest = ['Suzuki', 'ОАЭ','Suzuki', 'ОАЭ']
 
+    const [width] = useDeviceSize()
+
     return (
         <div className={'catalogFilterList'}>
             <ul className={'catalogFilterListItemsList'}>
                 {
-                    window.screen.width < 820 && <CatalogFiltersMobil/>
+                    width < 820 && <CatalogFiltersMobil/>
                 }
                 {
                     arrTest.map((item, index) => (

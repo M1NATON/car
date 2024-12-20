@@ -1,6 +1,6 @@
 "use client"
 
-import {CardProps} from "@/app/bd";
+import {CardProps} from "@/app/bd/bd";
 import Link from "next/link";
 import {formatPrice} from "@/app/utils/formatPrice";
 import arrow from '@/public/image/car/arrow.svg'
@@ -9,8 +9,8 @@ import clock from '@/public/image/car/clock.svg'
 import pin from '@/public/image/car/pin.svg'
 import FormApplication from "@/app/components/FormApplication";
 import {useState} from "react";
-import {screenWidth} from "@/app/utils/screenWidth";
 import NavbarModal from "@/app/components/navbar/NavbarModal";
+import useDeviceSize from "@/app/hooks/useDeviceSize";
 
 type Props = {
     car: CardProps
@@ -18,6 +18,7 @@ type Props = {
 
 const CarInfo = ({car}: Props) => {
 
+    const [width] = useDeviceSize()
 
     // useEffect(() => {
     //     const year = new Date().getYear()
@@ -136,7 +137,7 @@ const CarInfo = ({car}: Props) => {
                     </table>
                 </div>
                 {
-                    screenWidth > 820 && (
+                    width > 820 && (
                         <div>
                             <FormApplication/>
                         </div>

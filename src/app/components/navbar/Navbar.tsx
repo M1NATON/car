@@ -9,13 +9,14 @@ import phoneImg from '@/public/image/navbar/phone.svg'
 import NavbarModal from "@/app/components/navbar/NavbarModal";
 import Menu from "@/app/components/Menu";
 import NavbarMenu from "@/app/components/navbar/NavbarMenu";
-import {screenWidth} from "@/app/utils/screenWidth";
 import {usePathname} from "next/navigation";
+import useDeviceSize from "@/app/hooks/useDeviceSize";
 
 const Navbar = () => {
 
     const [modal, setModal] = useState(false)
     const [menu, setMenu] = useState(false)
+    const [width] = useDeviceSize()
 
     const url = usePathname()
     const onOpen = (type: string) => {
@@ -57,7 +58,7 @@ const Navbar = () => {
             <nav>
                 <ul>
                     {
-                        screenWidth < 820 ? (
+                        width < 820 ? (
                             <button className={'iconButton'}>
                                 <Image src={phoneImg} alt={'phone'}/>
                             </button>
@@ -76,13 +77,13 @@ const Navbar = () => {
                 </ul>
                 <ul>
                     {
-                        screenWidth < 820 ? (
+                        width < 820 ? (
                             <button onClick={() => onOpen('menu')} className={'iconButton'}>
                                 <Image src={menuImg} alt={'menu'}/>
                             </button>
                         ) : (
                             <>
-                                <li><Link href={'/catalog'} className={'navbarHeaderLink'}>Отзывы</Link></li>
+                                <li><Link href={'/feedback'} className={'navbarHeaderLink'}>Отзывы</Link></li>
                                 <li><Link href={'/catalog'} className={'navbarHeaderLink'}>Контакты</Link></li>
                                 <li>
                                     <button onClick={() => onOpen('modal')}>Заявка</button>
@@ -100,7 +101,7 @@ const Navbar = () => {
             {
                 menu && (
                     <Menu onClose={() => onClose('menu')} inOpen={menu}>
-                        <NavbarMenu/>
+                        <NavbarMenu onCLose={() => onClose('menu')}/>
                     </Menu>
                 )
             }

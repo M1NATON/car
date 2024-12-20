@@ -1,26 +1,27 @@
 "use client"
 
 
+import TitlePage from "@/app/components/TitlePage";
+import useDeviceSize from "@/app/hooks/useDeviceSize";
+
 const CatalogTitle = () => {
 
+
+    const [width] = useDeviceSize();
 
     return (
         <div className="catalogTitle">
 
             {
-                window.screen.width > 820 && (
-                    <header className={'catalogTitleHeader'}>
-                        <p>Главная</p>
-                        <p>—</p>
-                        <p>Заказать авто</p>
-                    </header>
+                width > 820 && (
+                    <TitlePage/>
                 )
             }
             <main>
                 <p>Автомобили с доставкой в РФ</p>
             </main>
             {
-                window.screen.width > 820 && (
+                width > 820 && (
                     <footer>
                         <p>Выберите авто</p>
                     </footer>

@@ -1,15 +1,27 @@
 import Link from "next/link";
+import Image from "next/image";
+import logoNavbar from "@/public/image/navbar/logoNavbar.svg";
 
-const NavbarMenu = () => {
+type Props = {
+    onCLose?: () => void;
+}
+
+const NavbarMenu = ({onCLose}:Props) => {
 
 
     return (
-        <ul className={'navbarMenu'}>
-            <li><Link href={'/catalog'}>Выбрать авто</Link></li>
-            <li><Link href={'/catalog'}>Как мы работаем</Link></li>
-            <li><Link href={'/catalog'}>Отзывы</Link></li>
-            <li><Link href={'/catalog'}>Контакты</Link></li>
-        </ul>
+        <>
+            <div className={'navbarMenuLogo'}>
+                <Image  src={logoNavbar} alt={'logo'}/>
+            </div>
+            <ul className={'navbarMenu'}>
+                <li><Link href={'/catalog'} onClick={onCLose}>Выбрать авто</Link></li>
+                <li><Link href={'/frequentlyAskedQuestions'} onClick={onCLose}>Как мы работаем</Link></li>
+                <li><Link href={'/feedback'} onClick={onCLose}>Отзывы</Link></li>
+                <li><Link href={'/catalog'} onClick={onCLose}>Контакты</Link></li>
+            </ul>
+        </>
+
     );
 };
 

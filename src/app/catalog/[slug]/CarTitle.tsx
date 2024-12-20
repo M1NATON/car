@@ -3,6 +3,7 @@
 import {usePathname} from "next/navigation";
 import {splitPathToArray} from "@/app/utils/splitPathToArray";
 import {urlToNameRu} from "@/app/utils/urlToNameRu";
+import useDeviceSize from "@/app/hooks/useDeviceSize";
 
 
 type Props = {
@@ -13,11 +14,12 @@ type Props = {
 const CarTitle = ({carName, carModel}:Props) => {
 
     const pathname = splitPathToArray(usePathname())
+    const [width] = useDeviceSize()
 
     return (
         <div className="carTitle">
             {
-                window.screen.width > 820 && (
+                width > 820 && (
                     <header className={'catalogTitleHeader'}>
                         <p>Главная</p>
                         <p>—</p>
